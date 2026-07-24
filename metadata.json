@@ -1,0 +1,6 @@
+{
+  "name": "PersonaAI",
+  "description": "Discover Your Personality & Grow Successfully - AI-powered personality analysis, career roadmap, communication coach, leadership, emotional intelligence, daily motivation & mentor chat.",
+  "requestFramePermissions": [],
+  "majorCapabilities": ["MAJOR_CAPABILITY_SERVER_SIDE_GEMINI_API"]
+}
