@@ -1,6 +1,7 @@
 import React, { useState, useRef, useEffect } from 'react';
 import { ChatMessage, UserProgress } from '../types';
 import { Bot, Send, User, Sparkles, Loader2, HelpCircle } from 'lucide-react';
+import { generateSmartMentorResponse } from '../utils/mentorHelper';
 
 interface Props {
   progressState?: UserProgress;
@@ -67,7 +68,7 @@ export const MentorChatView: React.FC<Props> = ({ progressState }) => {
       const mentorMsg: ChatMessage = {
         id: (Date.now() + 1).toString(),
         sender: 'mentor',
-        text: data.reply || "Believe in yourself! Take one deep breath and tackle one step at a time.",
+        text: data.reply || generateSmartMentorResponse(query, progressState),
         timestamp: new Date().toLocaleTimeString([], { hour: '2-digit', minute: '2-digit' })
       };
 
@@ -77,7 +78,7 @@ export const MentorChatView: React.FC<Props> = ({ progressState }) => {
       const mentorMsg: ChatMessage = {
         id: (Date.now() + 1).toString(),
         sender: 'mentor',
-        text: "It is completely natural to feel this way sometimes! Remember, courage is not the absence of nervousness—it is taking action despite it. Try breaking your task down into a 10-minute sprint, take a deep breath, and trust your capabilities!",
+        text: generateSmartMentorResponse(query, progressState),
         timestamp: new Date().toLocaleTimeString([], { hour: '2-digit', minute: '2-digit' })
       };
       setMessages((prev) => [...prev, mentorMsg]);
